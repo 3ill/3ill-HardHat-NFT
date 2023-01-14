@@ -15,6 +15,7 @@ error notAllowListed();
 contract BasicNFT is ERC721URIStorage, Ownable {
     /**EVENTS
      * @dev 3illBaby
+     *
      */
 
     event Transaction(address indexed seller, address indexed buyer);
@@ -89,6 +90,10 @@ contract BasicNFT is ERC721URIStorage, Ownable {
         _;
     }
 
+    /**
+     * @dev These are Write Fuctions hence cost some gas to execute 
+     */
+
     function mintNFT() public payable Mint Supply mintStatus {
         address Minter = msg.sender;
         uint256 tokenId = _tokenIdCounter.current();
@@ -134,6 +139,10 @@ contract BasicNFT is ERC721URIStorage, Ownable {
             revert withdrawalFailed();
         }
     }
+
+    /**
+     * @dev These are only owner functions hence can't be called by the public 
+     */
 
     function openMint(bool _mint) public onlyOwner {
         publicMint = _mint;
