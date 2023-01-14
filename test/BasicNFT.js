@@ -2,12 +2,12 @@ const {expect} = require("chai");
 const { ethers } = require("hardhat");
 
 describe("BasicNFT", () => {
-  let user
+  let user1;
   let basicNFT;
   let TokenName = "Thrill";
   let TokenSymbol = '3ILL'
   beforeEach( async() => {
-    user = await ethers.getSigner();
+    user1 = await ethers.getSigner();
     const BasicNFT = await ethers.getContractFactory("BasicNFT");
     basicNFT = await BasicNFT.deploy();
   }) 
