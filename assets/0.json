@@ -1,0 +1,11 @@
+{
+  "name": "cyberWar",
+  "description": "A Cyber Reaper",
+  "image": "https://ipfs.filebase.io/ipfs/QmTYwT3jXbhZbPzaJMKaqSgqBahynezSd4X4NMyjamShoy",
+  "attributes": [
+    {
+      "trait_type": "cyber",
+      "value": 100
+    }
+  ]
+}
