@@ -144,8 +144,12 @@ contract BasicNFT is ERC721URIStorage, Ownable {
      * @dev These are only owner functions hence can't be called by the public 
      */
 
-    function openMint(bool _mint) public onlyOwner {
+    function openMint(bool _mint) external onlyOwner {
         publicMint = _mint;
+    }
+
+    function openAllowListMinting(bool _mint) external onlyOwner {
+        allowListminting = _mint;
     }
 
     function addToAllowList(address[] calldata _address) public onlyOwner {
