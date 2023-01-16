@@ -94,6 +94,7 @@ contract BasicNFT is ERC721URIStorage, Ownable {
      * @dev These are Write Fuctions hence cost some gas to execute 
      */
 
+    //public minting 
     function mintNFT() public payable Mint Supply mintStatus {
         address Minter = msg.sender;
         uint256 tokenId = _tokenIdCounter.current();
@@ -106,6 +107,7 @@ contract BasicNFT is ERC721URIStorage, Ownable {
         emit Mints(Minter);
     }
 
+    //Allow list minting
     function allowListMinting() public payable allowListMintfee AmintingStatus {
         require(allowList[msg.sender] != true, " Not in the Allow List");
         address Minter = msg.sender;
@@ -144,14 +146,17 @@ contract BasicNFT is ERC721URIStorage, Ownable {
      * @dev These are only owner functions hence can't be called by the public 
      */
 
+    //open the public mint 
     function openMint(bool _mint) external onlyOwner {
         publicMint = _mint;
     }
 
+    //Open the allowlist minting 
     function openAllowListMinting(bool _mint) external onlyOwner {
         allowListminting = _mint;
     }
 
+    //Add addresses to the allowList 
     function addToAllowList(address[] calldata _address) external onlyOwner {
         for (uint256 i = 0; i < _address.length; i++) {
             allowList[_address[i]] = true;
