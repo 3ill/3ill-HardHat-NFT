@@ -152,7 +152,7 @@ contract BasicNFT is ERC721URIStorage, Ownable {
         allowListminting = _mint;
     }
 
-    function addToAllowList(address[] calldata _address) public onlyOwner {
+    function addToAllowList(address[] calldata _address) external onlyOwner {
         for (uint256 i = 0; i < _address.length; i++) {
             allowList[_address[i]] = true;
         }
