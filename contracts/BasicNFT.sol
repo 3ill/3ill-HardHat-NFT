@@ -109,7 +109,7 @@ contract BasicNFT is ERC721URIStorage, Ownable {
 
     //Allow list minting
     function allowListMinting() public payable allowListMintfee AmintingStatus {
-        require(allowList[msg.sender] != true, " Not in the Allow List");
+        require(allowList[msg.sender] == true, " Not in the Allow List");
         address Minter = msg.sender;
         uint256 tokenId = _tokenIdCounter.current();
         _tokenIdCounter.increment();
